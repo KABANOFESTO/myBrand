@@ -20,13 +20,15 @@
             height: 63px;
             width: 100%;
             display: flex;
-            justify-content:space-around;
+            justify-content: space-around;
         }
-        nav label{
+
+        nav label {
             font-weight: bold;
             font-size: 22px;
             display: inline;
         }
+
         body {
             background: #103440;
         }
@@ -110,13 +112,13 @@
             }
         }
 
-        @media (max-width:1115px){
-label.out{
-font-weight: bold;
-font-size: 20px;
-line-height: 65px;
-margin-left: 20rem;
-}
+        @media (max-width:1115px) {
+            label.out {
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 65px;
+                margin-left: 20rem;
+            }
         }
     </style>
 
@@ -124,7 +126,7 @@ margin-left: 20rem;
     <header>
         <nav>
             <label class="brand">K.Festo</label>
-            <label class="out"><a href="#" id="logoutBtn">LOGOUT</a></label>
+            <label class="out" onclick="logout()"><a href="#" id="logoutBtn">LOGOUT</a></label>
         </nav>
         <div class="aside">
             <h3 id="dash"><a href="dashBoard.html"><br>
@@ -146,7 +148,7 @@ margin-left: 20rem;
         </div>
 
 
-        <script src="./logout.js"></script>
+        <script src="../js/logout.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
             //   axios.get('https://my-brand-api.onrender.com/api/post/')
@@ -178,10 +180,10 @@ margin-left: 20rem;
                         <p style="color:brown;font-weight:bold;font-size:20px; text-align:right;">${info.postedDate}</p>
                         <a href='admin.html' onclick="updateArticle('${info._id}','${info.title}','${info.content}')"><br>
                             <button style="background:none;border:none;">
-                        <img src="picture/edit.png" style="height: 40px;width: 40px;margin-left: 2.5rem;"">
+                        <img src="../picture/edit.png" style="height: 40px;width: 40px;margin-left: 2.5rem;"">
                             </button></a>
                         <button onclick="deleteArticle('${info._id}')" style="background:none;border:none;">
-                        <img src="picture/delete.png" style="height: 40px;width: 40px;margin-left: 8rem;">
+                        <img src="../picture/delete.png" style="height: 40px;width: 40px;margin-left: 8rem;">
                         </button>
                         </p>
                         </div></div>
@@ -220,8 +222,6 @@ margin-left: 20rem;
                     id, title, content
                 }
                 localStorage.setItem("updateArticle", JSON.stringify(article))
-
-
             };
             localStorage.removeItem('updateArticle')
         </script>

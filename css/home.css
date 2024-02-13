@@ -225,6 +225,10 @@ label.brand2 {
     color: #fff;
 }
 
+.card-title {
+    color: #0cb05e;
+}
+
 .btn-success {
     width: 100px;
     height: 30px;

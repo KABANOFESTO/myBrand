@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Admin-pannel</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    nav {
+      background-color: white;
+      height: 63px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    nav label {
+      font-weight: bold;
+      font-size: 22px;
+      display: inline;
+    }
+
+    body {
+      background: #103440;
+    }
+
+    .aside {
+      width: 190px;
+      height: 100%;
+      padding-right: 15rem;
+      background-color: white;
+      margin-left: 0%;
+      background: white;
+      position: fixed;
+      z-index: 1000;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .dashDisplay {
+      display: flex;
+      margin: 20px;
+      margin-top: 4rem;
+      margin-left: 20rem;
+    }
+
+    .dashboard {
+      margin-top: -14cm;
+      margin-left: 10cm;
+      text-align: left;
+      background-color: none;
+      height: 200px;
+
+    }
+
+    .aside #dash p {
+      text-decoration: none;
+      color: black;
+    }
+
+    .out a {
+      text-decoration: none;
+      color: black;
+    }
+
+
+
+
+
+    @media (max-width:1200px) {}
+
+
+
+
+    @media (max-width:400px) {
+      .dashDisplay {
+        display: inline-block;
+        margin: 10px;
+        margin-top: 2rem;
+        margin-left: 3rem;
+        height: 20px;
+        width: 18px;
+
+      }
+
+      label.out {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 50px;
+      }
+
+      .aside {
+        display: none;
+      }
+
+      nav {
+        margin-left: 3rem;
+        height: 5rem;
+        width: 16rem;
+
+      }
+    }
+
+    @media (max-width:700px) {}
+
+    @media (max-width:1115px) {
+      label.out {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 65px;
+        margin-left: 25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <label class="brand">K.Festo</label>
+    <label class="out" onclick="logout()"><a href="#" id="logoutBtn">LOGOUT</a></label>
+  </nav>
+  <div class="aside">
+    <h3 id="dash"><a href=""><br>
+        <p style="background-color:skyblue;text-decoration: none;">Dashboard</p>
+      </a>
+      <hr><br><br>
+      <a href="admin.html"><br>
+        <p>New Articles</p>
+      </a>
+      <hr><br><br><a href="view.html">
+        <br>
+        <p>View Articles</p>
+      </a>
+      <hr><br><br>
+    </h3>
+  </div>
+  <form role="form" id="dashboard" onsubmit="dashBoard()"><br>
+    <div class="dashDisplay">
+      <div style="height:70px;width:250px;background-color: white;text-align:center;">
+        <h3>2 Post(s)</h3>
+      </div>&nbsp;&nbsp;
+      <div style="height:70px;width:250px;background-color: white;text-align: center;">
+        <h3>0 Message(s)</h3>
+      </div>&nbsp;&nbsp;
+      <div style="height:70px;width:250px;background-color: white;text-align: center;">
+        <h3>0 Comment(s)</h3>
+      </div>&nbsp;&nbsp;
+    </div>
+  </form>
+  <div style="background-color: #103440;" id="container">
+  </div>
+  <script src="../js/logout.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem('loginedUser'))
+    const getMessage = () => {
+      const messageContainer = document.getElementById('container');
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch("https://my-brand-api.onrender.com/api/message/", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          const messages = result.messages || []
+
+          messages.forEach(element => {
+            messageContainer.innerHTML += `<div class="feedback-item">
+              <div class="feedback-title">
+                <h3>${element.email}</h3>
+              </div><br>
+              <div class="feedback-body">
+                <p>${element.message}</p>
+              </div><br>
+              <div class="feedback-footer">
+               <a href='mailto:${element.email}' target='blank'> <button class="reply">Reply</button></a>
+                <button class="delete" onclick="deleteMessage('${element._id}')">Delete</button>
+              </div><div class="space"><br></div>
+            </div>`
+          });
+        })
+        .catch(error => console.log('error', error));
+    }
+    getMessage()
+    const deleteMessage = id => {
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+
+      var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch(`https://my-brand-api.onrender.com/api/message/${id}/delete`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          container.innerHTML = ''
+          getMessage();
+        })
+        .catch(error => console.log('error', error));
+    }
+  </script>
+</body>
+
+</html>

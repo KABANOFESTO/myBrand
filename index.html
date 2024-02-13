@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homePage</title>
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
@@ -27,7 +27,7 @@
                     <li><a href="#protfolio">Work</a></li>
                     <li><a href="#cont">Contact</a></li>
                     <li><a href="#blog">Certificates</a></li>
-                    <li><a href="login.html" class="sign"><i class="bi bi-person-fill"></i>Sign-In</a></li>
+                    <li><a href="./src/login.html" class="sign"><i class="bi bi-person-fill"></i>Sign-In</a></li>
                 </ul>
                 <div class="icon menu-btn">
                     <i class="fas fa-bars"></i>
@@ -35,7 +35,7 @@
             </div>
         </nav>
     </header>
-    <section id="body-section">
+    <section class="w-full py-5 min-h-full" id="body-section">
         <div id="home-Body">
             <div class="card" style="width: 40rem;">
                 <div class="card-body">
@@ -49,7 +49,8 @@
                 </div>
             </div>
             <div>
-                <img src="picture/f.jpg" id="img" style="height:40em; width:25em;border-radius: 20%;">
+                <img src="./picture/f.jpg" id="img" class="rounded float-end" alt="..."
+                    style="height:40em; width:25em;border-radius: 20%;">
             </div>
         </div>
         <div class="copyRight"><br>
@@ -57,13 +58,13 @@
             <p>“Means with coding ,I can do whatever you want :Just DM me”</p>
         </div>
     </section>
-
-    <br><br><br><br>
+    <br><br>
+    <hr /><br><br>
     <section id="about-section">
         <div id="about">
             <br><br>
             <div>
-                <img src="picture/about.webp" style="height:30rem; width:36rem;margin-top:15em;">
+                <img src="./picture/about.webp" style="height:30rem; width:36rem;margin-top:15em;">
             </div>
             <div id="sbody">
 
@@ -92,7 +93,7 @@
     <section id="skill-section" style="display: none;">
         <div id="skill"><br><br>
             <div>
-                <img src="picture/about.webp" style="height:30rem; width:36rem;margin-top:15em;margin-left:-2em;">
+                <img src="./picture/about.webp" style="height:30rem; width:36rem;margin-top:15em;margin-left:-2em;">
             </div>
             <br><br>
             <div id="mbody">
@@ -125,7 +126,9 @@
             </div>
         </div>
     </section>
-    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
+    <br><br>
+    <hr /><br><br><br>
     <div id="protfolio">
         <h2 style="color: white;">
             <p>PORTFOLIO</p>
@@ -135,15 +138,18 @@
     <br><br><br>
     <div id="porto">
         <div>
-            <img src="picture/martin-marek-jDqwzyP3MlA-unsplash.jpg" style="height:34em;width:25em;">
+            <img src="./picture/martin-marek-jDqwzyP3MlA-unsplash.jpg" style="height:34em;width:25em;">
         </div>
-        <img src="picture/altumcode-U0tBTn8UR8I-unsplash.jpg" style="height:34em;width:25em;">
+        <img src="./picture/altumcode-U0tBTn8UR8I-unsplash.jpg" style="height:34em;width:25em;">
 
-        <img src="picture/gema-saputera-pJaocJrXGFQ-unsplash.jpg" style="height:34em;width:25em;">
+        <img src="./picture/gema-saputera-pJaocJrXGFQ-unsplash.jpg" style="height:34em;width:25em;">
     </div>
-    <br><br> <br><br><br><br> <br><br><br><br>
+    <br><br> <br><br><br>
+    <br> <br><br>
+    <br>
+    <hr /><br>
     <center>
-        <h3 style="text-align: center;color: white;" id="cont">Contact us</h3>
+        <h3 style="text-align: center;color: white;" id="cont">Contact Me!</h3>
     </center>
     <br><br>
     <div id="contact">
@@ -182,8 +188,8 @@
                     </p>
                     <br>
                     <p>
-                        <textarea type="text" placeholder="write article's title" rows="5" id="mess" name="message"
-                            required></textarea>
+                        <textarea type="text" placeholder="Please write your message Here!" rows="5" id="mess"
+                            name="message" required></textarea>
                         <input type="submit" class="submit-btn" value="SEND MESSAGE" style="margin-left: -1em;" />
                     </p>
                 </form>
@@ -195,7 +201,8 @@
                 </p>
             </div>
         </div>
-    </div><br><br><br><br><br><br>
+    </div><br><br>
+    <hr /><br><br><br><br>
     <div id="blog">
         <h3 style="color: white;text-align: center;font-weight: bold;">
             <p>My Awards &</p>
@@ -222,7 +229,7 @@
                     <li><a href="#protfolio">Work</a></li>
                     <li><a href="#contact-section">Contact</a></li>
                     <li><a href="#blog">Certificates</a></li>
-                    <li><a href="login.html" class="sign"><i class="bi bi-person-fill"></i>Sign-In</a></li>
+                    <li><a href="./src/login.html" class="sign"><i class="bi bi-person-fill"></i>Sign-In</a></li>
                 </ul>
             </article>
             <br /><br />
@@ -270,11 +277,11 @@
                     let div = document.createElement("div");
 
                     div.innerHTML = `<div class="blogItem">
-                    <a href='./blog.html' onclick="read('${info._id}')"> <div><p><img src="${info.imageUrl}" style="width:300px;height:300px;"></p>
+                    <a href='../src/blog.html' onclick="read('${info._id}')"> <div><p><img src="${info.imageUrl}" style="width:300px;height:300px;"></p>
                     <div style="background-color:white;width:300px">
                         <p style="color:black;font-weight:bold;font-size:20px; text-align:center;">${info.title}</p>
-                    <img src="picture/comm.png" style="height: 40px;width: 40px;margin-left: 2.5rem;">${info.comments.length} 
-                    <img src="picture/like.png" style="height: 40px;width: 40px;margin-left: 8rem;">${info.likes.length}
+                    <img src="../picture/comm.png" style="height: 40px;width: 40px;margin-left: 2.5rem;">${info.comments.length} 
+                    <img src="../picture/like.png" style="height: 40px;width: 40px;margin-left: 8rem;">${info.likes.length}
                     <p style="color:brown;font-weight:bold;font-size:20px; text-align:center;">${info.postedDate}</p>
                     </div>
                     </a>
@@ -327,7 +334,7 @@
         }
         document.getElementById('messageForm').addEventListener('submit', sendMessage)
     </script>
-    <script src="./manipulation.js"></script>
+    <script src="./js/manipulation.js"></script>
     <script src="./js/menus.js"></script>
 </body>
 
