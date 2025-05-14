@@ -7,7 +7,7 @@ const isAdminLogedIn = () => {
 isAdminLogedIn()
 const logout = () => {
   localStorage.removeItem("loginedUser");
-  location.href = '../src/index.html'
+  location.href = '../../index.html'
 };
 
 document.getElementById("logoutBtn").addEventListener('click', logout)
