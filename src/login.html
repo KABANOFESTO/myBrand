@@ -135,7 +135,7 @@
         redirect: 'follow'
       };
 
-      fetch("https://my-brand-api.onrender.com/api/account/login", requestOptions)
+      fetch("/api/account/login", requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log(result)

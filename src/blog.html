@@ -99,7 +99,7 @@
     <script>
       const articleId = localStorage.getItem('readArticle')
       let data;
-      axios.get(`https://my-brand-api.onrender.com/api/articles/${articleId}`)
+      axios.get(`/api/articles/${articleId}`)
         .then(function (response) {
           data = response.data;
           document.getElementById('image').src = data.imageUrl
@@ -167,7 +167,7 @@
           redirect: 'follow'
         };
 
-        fetch(`https://my-brand-api.onrender.com/api/articles/${articleId}/comment`, requestOptions)
+        fetch(`/api/articles/${articleId}/comment`, requestOptions)
           .then(response => response.json())
           .then(result => {
             console.log(result)
@@ -219,7 +219,7 @@
         };
 
 
-        fetch(`https://my-brand-api.onrender.com/api/articles/${articleId}/like`, requestOptions)
+        fetch(`/api/articles/${articleId}/like`, requestOptions)
           .then(response => response.json())
           .then(result => {
             console.log(result);

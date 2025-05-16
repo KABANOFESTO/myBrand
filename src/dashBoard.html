@@ -172,7 +172,7 @@
         redirect: 'follow'
       };
 
-      fetch("https://my-brand-api.onrender.com/api/message/", requestOptions)
+      fetch("/api/message/", requestOptions)
         .then(response => response.json())
         .then(result => {
           const messages = result.messages || []
@@ -205,7 +205,7 @@
         redirect: 'follow'
       };
 
-      fetch(`https://my-brand-api.onrender.com/api/message/${id}/delete`, requestOptions)
+      fetch(`/api/message/${id}/delete`, requestOptions)
         .then(response => response.json())
         .then(result => {
           container.innerHTML = ''

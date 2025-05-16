@@ -272,7 +272,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        axios.get('https://my-brand-api.onrender.com/api/articles/')
+        axios.get('/api/articles/')
             .then(function (response) {
                 let data = response.data;
                 data.forEach(function (info) {
@@ -324,7 +324,7 @@
                 redirect: 'follow'
             };
 
-            fetch("https://my-brand-api.onrender.com/api/message/sendMessage/", requestOptions)
+            fetch("/api/message/sendMessage/", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     console.log(result)

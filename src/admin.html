@@ -240,7 +240,7 @@
                         redirect: 'follow'
                     };
 
-                    fetch(`https://my-brand-api.onrender.com/api/articles/${article.id}/update`, requestOptions)
+                    fetch(`/api/articles/${article.id}/update`, requestOptions)
                         .then(response => response.text())
                         .then(result => {
                             console.log(result)
@@ -284,7 +284,7 @@
                         redirect: 'follow'
                     };
                     console.log('here')
-                    fetch("https://my-brand-api.onrender.com/api/articles/add", requestOptions)
+                    fetch("/api/articles/add", requestOptions)
                         .then(response => response.json())
                         .then(result => {
 
